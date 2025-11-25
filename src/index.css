@@ -1,4 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: 'NationalPension';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NationalPension';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NationalPension';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +25,11 @@
 
 @layer base {
   body {
-    @apply font-sans text-main bg-background antialiased;
+    @apply font-sans text-white antialiased;
+    background-color: #01002e;
   }
 }
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
 }

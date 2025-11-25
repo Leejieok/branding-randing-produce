@@ -1,5 +1,7 @@
 
+
 import Layout from './components/Layout';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ContentSection from './components/ContentSection';
 import Footer from './components/Footer';
@@ -7,6 +9,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Layout>
+      <Navbar />
       <Hero />
 
       <ContentSection
