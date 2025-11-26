@@ -2,32 +2,70 @@ import { type FC } from 'react';
 import { motion } from 'framer-motion';
 
 interface PolicyFundCardProps {
+    width?: number;
+    height?: number;
     delay?: number;
 }
 
-const PolicyFundCard: FC<PolicyFundCardProps> = ({ delay = 0.2 }) => {
+const PolicyFundCard: FC<PolicyFundCardProps> = ({
+    width = 125,
+    height = 162,
+    delay = 0.2
+}) => {
+    // Calculate inner card dimensions based on original ratio
+    // Original: outer 125x162, inner 97x99
+    const innerWidth = width * 0.776; // 97/125 = 0.776
+    const innerHeight = height * 0.611; // 99/162 = 0.611
+
+    // Calculate horizontal centering
+    const leftOffset = (width - innerWidth) / 2;
+
+    // Calculate bottom spacing proportionally (original: 10px for 162px height)
+    const bottomSpacing = height * 0.062; // 10/162 = 0.062
+
+    // Calculate border radius proportionally
+    const outerBorderRadius = width * 0.12; // 15/125 = 0.12
+    const innerBorderRadius = innerWidth * 0.093; // 9/97 = 0.093
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay }}
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 mb-8 shadow-xl"
-        >
-            <div className="flex items-start justify-between mb-4">
-                <div>
-                    <p className="text-sm text-secondary mb-1">채무 발생 경위</p>
-                    <p className="text-xs text-white/60">생활비, 대환대출, 낮은 소득</p>
+        <div style={{ position: 'relative', width: `${width}px`, height: `${height}px` }}>
+            {/* Top Card - Higher z-index */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay }}
+                style={{
+                    position: 'absolute',
+                    width: `${innerWidth}px`,
+                    height: `${innerHeight}px`,
+                    background: 'linear-gradient(289.66deg, #E6E6E6 1.41%, #D5D5D5 95.2%)',
+                    boxShadow: '3px 4px 5.2px rgba(0, 0, 0, 0.29), -4px -3px 8.5px rgba(255, 255, 255, 0.75)',
+                    borderRadius: `${innerBorderRadius}px`,
+                    zIndex: 2,
+                    left: `${leftOffset}px`,
+                    bottom: `${bottomSpacing}px`
+                }}
+            />
+
+            {/* Bottom Card - Lower z-index */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: delay + 0.1 }}
+                style={{
+                    position: 'absolute',
+                    width: `${width}px`,
+                    height: `${height}px`,
+                    background: 'linear-gradient(321.5deg, #FFFFFF -11.34%, #CFCFCF 103.54%)',
+                    borderRadius: `${outerBorderRadius}px`,
+                    zIndex: 1
+                }}
+            >
+                <div className="flex items-start justify-between mb-4">
+
                 </div>
-                <div className="text-right">
-                    <p className="text-sm text-secondary mb-1">정책자금 종류</p>
-                    <div className="flex flex-wrap gap-1 justify-end">
-                        <span className="text-xs bg-primary/50 px-2 py-1 rounded-full border border-secondary/30">경영·운영</span>
-                        <span className="text-xs bg-primary/50 px-2 py-1 rounded-full border border-secondary/30">창업·벤처</span>
-                        <span className="text-xs bg-primary/50 px-2 py-1 rounded-full border border-secondary/30">R&D·기술</span>
-                    </div>
-                </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     );
 };
 

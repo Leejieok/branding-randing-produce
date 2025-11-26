@@ -1,8 +1,10 @@
 
 
+
 import Layout from './components/Layout';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import HeroBenefits from './components/HeroBenefits';
 import ContentSection from './components/ContentSection';
 import Footer from './components/Footer';
 
@@ -11,6 +13,7 @@ function App() {
     <Layout>
       <Navbar />
       <Hero />
+      <HeroBenefits />
 
       <ContentSection
         title="감당하기 힘든 빚, 혼자 고민하지 마세요"

@@ -4,226 +4,39 @@ import { motion } from 'framer-motion';
 // Import components
 import PolicyFundCard from './PolicyFundCard';
 
-// Import icons
-import fastApprovalIcon from '../assets/icons/fast_approval.png';
-import managementSystemIcon from '../assets/icons/management_system.png';
-import fundingIcon from '../assets/icons/funding.png';
-import consultationIcon from '../assets/icons/consultation.png';
-import onlineIcon from '../assets/icons/online.png';
-import documentIcon from '../assets/icons/document.png';
-
 const Hero: FC = () => {
   return (
-    <section className="relative w-full min-h-screen bg-background text-white overflow-hidden pt-16">
+    <section className="bg-background pt-16">
       {/* Background Effects */}
 
-      <div className="container mx-auto px-4 py-4 lg:py-12 relative z-10">
+      <div className="font-paperozi mx-auto px-4 py-4 lg:py-12 relative z-10">
         {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-start lg:text-center mb-12"
+          className="text-start lg:text-center mb-12 relative"
         >
-          <h1 className="text-xl lg:text-4xl md:text-6xl font-bold mb-4 leading-tight">
-            <span className="block text-white">한 사람을 위한</span>
-            <span className="block text-white">한 사람에 의한</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-secondary via-tertiary to-secondary mt-2">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-secondary via-tertiary to-secondary">
+            <span className="block">한 사람을 위한</span>
+            <span className="block">한 사람에 의한</span>
+            <span className="block text-white inline-flex flex-col items-start lg:items-center">
               나만의 맞춤 설계
+              <span
+                style={{
+                  width: '100%',
+                  height: '4px',
+                  background: 'linear-gradient(90deg, #C6F1F7 0%, #F983E9 33%, #B877FF 66%, #C2E9CD 100%)',
+                  borderRadius: '2px',
+                  marginTop: '0.2px'
+                }}
+              />
             </span>
           </h1>
         </motion.div>
 
         {/* Policy Fund Type Card */}
         <PolicyFundCard delay={0.2} />
-
-        {/* Approval Rate Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-gradient-to-br from-primary/30 to-secondary/20 backdrop-blur-md border border-secondary/30 rounded-2xl p-8 mb-8 shadow-2xl"
-        >
-          <div className="text-center">
-            <p className="text-sm text-secondary mb-4">승인율</p>
-            <div className="relative inline-block">
-              <svg className="w-32 h-32 transform -rotate-90">
-                <circle
-                  cx="64"
-                  cy="64"
-                  r="56"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  fill="none"
-                  className="text-white/10"
-                />
-                <circle
-                  cx="64"
-                  cy="64"
-                  r="56"
-                  stroke="url(#gradient)"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeDasharray={`${2 * Math.PI * 56 * 0.9465} ${2 * Math.PI * 56}`}
-                  strokeLinecap="round"
-                  className="transition-all duration-1000"
-                />
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#88baff" />
-                    <stop offset="100%" stopColor="#3bf679" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-white">94.65</p>
-                  <p className="text-sm text-secondary">%</p>
-                </div>
-              </div>
-            </div>
-            <p className="text-xs text-white/60 mt-4">2,429건 누적 승인</p>
-          </div>
-        </motion.div>
-
-        {/* Special Benefits */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-8"
-        >
-          <h2 className="text-2xl font-bold text-center mb-6 text-white">특별 혜택</h2>
-          <div className="grid grid-cols-1 gap-4">
-            {/* Fast Approval */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-secondary/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <img
-                    src={fastApprovalIcon}
-                    alt="초고속 승인"
-                    className="w-10 h-10"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-2">초고속 승인</h3>
-                  <p className="text-sm text-white/70">업계 최고 속도로 상담, 접수부터 승인까지 초고속 처리</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Management System */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-tertiary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <img
-                    src={managementSystemIcon}
-                    alt="사후 관리 시스템"
-                    className="w-10 h-10"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-2">사후 관리 시스템</h3>
-                  <p className="text-sm text-white/70">승인 후에도 계속 관리되며 상담 서비스를 제공</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Bottom Features Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 gap-4"
-        >
-          {/* Customized Funding */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/50 transition-all duration-300">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
-              <img
-                src={fundingIcon}
-                alt="자금 유형"
-                className="w-8 h-8"
-              />
-            </div>
-            <h4 className="text-sm font-bold text-white mb-1">자금의 유형에 맞춰</h4>
-            <p className="text-xs text-white/60">업종별 특화된 전문가 상담</p>
-          </div>
-
-          {/* Expert Consultation */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300">
-            <div className="w-12 h-12 bg-gradient-to-br from-secondary to-tertiary rounded-lg flex items-center justify-center mb-3 shadow-lg">
-              <img
-                src={consultationIcon}
-                alt="전문가 상담"
-                className="w-8 h-8"
-              />
-            </div>
-            <h4 className="text-sm font-bold text-white mb-1">전문 관리팀 배정</h4>
-            <p className="text-xs text-white/60">맞춤형 자금 솔루션 제안</p>
-          </div>
-
-          {/* Online Application */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/50 transition-all duration-300">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
-              <img
-                src={onlineIcon}
-                alt="무방문 접수"
-                className="w-8 h-8"
-              />
-            </div>
-            <h4 className="text-sm font-bold text-white mb-1">무방문 접수</h4>
-            <p className="text-xs text-white/60">모든 절차를 온라인으로 진행</p>
-          </div>
-
-          {/* Document Service */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300">
-            <div className="w-12 h-12 bg-gradient-to-br from-tertiary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
-              <img
-                src={documentIcon}
-                alt="서류 발급"
-                className="w-8 h-8"
-              />
-            </div>
-            <h4 className="text-sm font-bold text-white mb-1">서류 발급 대행</h4>
-            <p className="text-xs text-white/60">승인 최적화된 사업계획서 작성</p>
-          </div>
-        </motion.div>
-
-        {/* Real-time Tracking - Full Width */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-4"
-        >
-          <div className="bg-gradient-to-r from-primary/30 via-secondary/20 to-tertiary/20 backdrop-blur-md border border-secondary/30 rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-secondary to-tertiary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-lg font-bold text-white mb-1">실시간 추적 시스템</h4>
-                <p className="text-sm text-white/70">모든 진행 상황을 실시간으로 투명하게 공유 및 확인 가능</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-12 text-center"
-        >
-          <button className="w-full max-w-md px-8 py-5 bg-gradient-to-r from-secondary via-primary to-tertiary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/50 hover:shadow-tertiary/50 transition-all duration-300 hover:scale-105">
-            무료 상담 신청하기
-          </button>
-        </motion.div>
       </div>
     </section>
   );
