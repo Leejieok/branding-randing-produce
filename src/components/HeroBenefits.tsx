@@ -18,7 +18,13 @@ const HeroBenefits: FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                    className="bg-gradient-to-br from-primary/30 to-secondary/20 backdrop-blur-md border border-secondary/30 rounded-2xl p-8 mb-8 shadow-2xl"
+                    style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(10px)',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)'
+                    }}
+                    className="rounded-2xl p-8 mb-8"
                 >
                     <div className="text-center">
                         <p className="text-sm text-secondary mb-4">승인율</p>
@@ -72,7 +78,15 @@ const HeroBenefits: FC = () => {
                     <h2 className="text-2xl font-bold text-center mb-6 text-white">특별 혜택</h2>
                     <div className="grid grid-cols-1 gap-4">
                         {/* Fast Approval */}
-                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-secondary/50 transition-all duration-300">
+                        <div
+                            style={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                border: '1px solid rgba(255, 255, 255, 0.2)'
+                            }}
+                            className="rounded-xl p-6 hover:border-secondary/50 transition-all duration-300"
+                        >
                             <div className="flex items-start gap-4">
                                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                                     <img
@@ -89,7 +103,15 @@ const HeroBenefits: FC = () => {
                         </div>
 
                         {/* Management System */}
-                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300">
+                        <div
+                            style={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                border: '1px solid rgba(255, 255, 255, 0.2)'
+                            }}
+                            className="rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300"
+                        >
                             <div className="flex items-start gap-4">
                                 <div className="w-16 h-16 bg-gradient-to-br from-tertiary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                                     <img
@@ -115,7 +137,15 @@ const HeroBenefits: FC = () => {
                     className="grid grid-cols-2 gap-4"
                 >
                     {/* Customized Funding */}
-                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/50 transition-all duration-300">
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                        className="rounded-xl p-4 hover:border-secondary/50 transition-all duration-300"
+                    >
                         <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
                             <img
                                 src={fundingIcon}
@@ -128,7 +158,15 @@ const HeroBenefits: FC = () => {
                     </div>
 
                     {/* Expert Consultation */}
-                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300">
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                        className="rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300"
+                    >
                         <div className="w-12 h-12 bg-gradient-to-br from-secondary to-tertiary rounded-lg flex items-center justify-center mb-3 shadow-lg">
                             <img
                                 src={consultationIcon}
@@ -141,7 +179,15 @@ const HeroBenefits: FC = () => {
                     </div>
 
                     {/* Online Application */}
-                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/50 transition-all duration-300">
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                        className="rounded-xl p-4 hover:border-secondary/50 transition-all duration-300"
+                    >
                         <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
                             <img
                                 src={onlineIcon}
@@ -154,7 +200,15 @@ const HeroBenefits: FC = () => {
                     </div>
 
                     {/* Document Service */}
-                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300">
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                        className="rounded-xl p-4 hover:border-tertiary/50 transition-all duration-300"
+                    >
                         <div className="w-12 h-12 bg-gradient-to-br from-tertiary to-secondary rounded-lg flex items-center justify-center mb-3 shadow-lg">
                             <img
                                 src={documentIcon}
@@ -174,7 +228,15 @@ const HeroBenefits: FC = () => {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mt-4"
                 >
-                    <div className="bg-gradient-to-r from-primary/30 via-secondary/20 to-tertiary/20 backdrop-blur-md border border-secondary/30 rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300">
+                    <div
+                        style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                        className="rounded-xl p-6 hover:border-tertiary/50 transition-all duration-300"
+                    >
                         <div className="flex items-center gap-4">
                             <div className="w-14 h-14 bg-gradient-to-br from-secondary to-tertiary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
