@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 
 // Import components
-import PolicyFundCard from './PolicyFundCard';
+
 
 const Hero: FC = () => {
   return (
@@ -35,8 +35,7 @@ const Hero: FC = () => {
           </h1>
         </motion.div>
 
-        {/* Policy Fund Type Card */}
-        <PolicyFundCard delay={0.2} />
+
       </div>
     </section>
   );

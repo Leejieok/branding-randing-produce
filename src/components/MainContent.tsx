@@ -1,10 +1,12 @@
 import type { FC } from 'react';
 import HeroBenefits from './HeroBenefits';
+import PolicyFundCard from './PolicyFundCard';
 import ContentSection from './ContentSection';
 
 const MainContent: FC = () => {
     return (
         <>
+            <PolicyFundCard delay={0.2} />
             <HeroBenefits />
 
             <ContentSection
