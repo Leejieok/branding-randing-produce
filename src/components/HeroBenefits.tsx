@@ -13,61 +13,6 @@ const HeroBenefits: FC = () => {
     return (
         <section className="relative w-full bg-background text-white overflow-hidden">
             <div className="container mx-auto px-4 py-8 relative z-10">
-                {/* Approval Rate Card */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(10px)',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)'
-                    }}
-                    className="rounded-2xl p-8 mb-8"
-                >
-                    <div className="text-center">
-                        <p className="text-sm text-secondary mb-4">승인율</p>
-                        <div className="relative inline-block">
-                            <svg className="w-32 h-32 transform -rotate-90">
-                                <circle
-                                    cx="64"
-                                    cy="64"
-                                    r="56"
-                                    stroke="currentColor"
-                                    strokeWidth="8"
-                                    fill="none"
-                                    className="text-white/10"
-                                />
-                                <circle
-                                    cx="64"
-                                    cy="64"
-                                    r="56"
-                                    stroke="url(#gradient)"
-                                    strokeWidth="8"
-                                    fill="none"
-                                    strokeDasharray={`${2 * Math.PI * 56 * 0.9465} ${2 * Math.PI * 56}`}
-                                    strokeLinecap="round"
-                                    className="transition-all duration-1000"
-                                />
-                                <defs>
-                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#88baff" />
-                                        <stop offset="100%" stopColor="#3bf679" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center">
-                                    <p className="text-4xl font-bold text-white">94.65</p>
-                                    <p className="text-sm text-secondary">%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p className="text-xs text-white/60 mt-4">2,429건 누적 승인</p>
-                    </div>
-                </motion.div>
-
                 {/* Special Benefits */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

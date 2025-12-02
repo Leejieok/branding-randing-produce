@@ -12,8 +12,8 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
         <div style={{
             position: 'relative',
             width: 'auto',
-            margin: '0 5px',
-            aspectRatio: '252 / 162'
+            margin: '0 10px 35px 10px',
+            aspectRatio: '252 / 132'
         }}>
             {/* Duck Image - Left side */}
             <motion.img
@@ -28,8 +28,8 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                     height: '92%', // 0.611 * 1.5 = 0.9165
                     objectFit: 'contain',
                     zIndex: 2,
-                    left: '1%',
-                    bottom: '-15%' // -(0.611 * 1.5) / 3 = -0.305. Wait, original math: -(innerHeight * 1.5) / 3. innerHeight is 0.611*H. So -(0.611*H * 1.5)/3 = -0.3055*H. So -30%.
+                    left: '-3%',
+                    bottom: '-25%' // -(0.611 * 1.5) / 3 = -0.305. Wait, original math: -(innerHeight * 1.5) / 3. innerHeight is 0.611*H. So -(0.611*H * 1.5)/3 = -0.3055*H. So -30%.
                 }}
             />
 
@@ -46,7 +46,7 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                     boxShadow: '3px 4px 5.2px rgba(0, 0, 0, 0.29), -4px -3px 8.5px rgba(255, 255, 255, 0.75)',
                     borderRadius: '12px',
                     zIndex: 2,
-                    right: '1%',
+                    right: '5%',
                     bottom: '6%',
                     padding: '4%',
                     display: 'flex',
@@ -56,21 +56,21 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                 }}
             >
                 {/* Item 1 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <img src="/src/assets/icons/check.png" alt="check" style={{ width: '16px', height: '16px' }} />
-                    <span style={{ fontSize: '12px', color: '#333', fontWeight: '500', whiteSpace: 'nowrap' }}>경영 운영 지원자금</span>
+                <div className="flex items-center gap-1.5">
+                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
+                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">경영 운영 지원자금</span>
                 </div>
 
                 {/* Item 2 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <img src="/src/assets/icons/check.png" alt="check" style={{ width: '16px', height: '16px' }} />
-                    <span style={{ fontSize: '12px', color: '#333', fontWeight: '500', whiteSpace: 'nowrap' }}>창업 벤처자금</span>
+                <div className="flex items-center gap-1.5">
+                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
+                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">창업 벤처자금</span>
                 </div>
 
                 {/* Item 3 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <img src="/src/assets/icons/check.png" alt="check" style={{ width: '16px', height: '16px' }} />
-                    <span style={{ fontSize: '12px', color: '#333', fontWeight: '500', whiteSpace: 'nowrap' }}>R&D 기술 자금</span>
+                <div className="flex items-center gap-1.5">
+                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
+                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">R&D 기술 자금</span>
                 </div>
             </motion.div>
 
@@ -90,12 +90,7 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                     padding: '6%'
                 }}
             >
-                <div style={{
-                    fontSize: '18px',
-                    fontWeight: 'bold',
-                    color: '#333',
-                    textAlign: 'left'
-                }}>
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 text-left">
                     정책자금 종류 A to Z
                 </div>
             </motion.div>
