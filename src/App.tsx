@@ -2,19 +2,17 @@ import Layout from './components/Layout';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MainContent from './components/MainContent';
-import ApprovalGauge from './components/ApprovalGauge';
 import ServiceFeatures from './components/ServiceFeatures';
 import ContentSection from './components/ContentSection';
 import Footer from './components/Footer';
-import PolicyFundCard from './components/PolicyFundCard';
 
 function App() {
   return (
     <Layout>
       <Navbar />
       <Hero />
-      <PolicyFundCard delay={0.2} />
-      <ApprovalGauge percentage={94.65} label="승인률" />
+
+
       <ServiceFeatures />
       <MainContent />
 

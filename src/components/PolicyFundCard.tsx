@@ -8,93 +8,69 @@ interface PolicyFundCardProps {
 const PolicyFundCard: FC<PolicyFundCardProps> = ({
     delay = 0.2
 }) => {
+    const items = [
+        { icon: '/src/assets/icons/bank.svg', text: '경영 운영 지원자금' },
+        { icon: '/src/assets/icons/idea.svg', text: '창업 벤처자금' },
+        { icon: '/src/assets/icons/money.svg', text: 'R&D 기술 자금' }
+    ];
+
     return (
-        <div style={{
-            position: 'relative',
-            width: 'auto',
-            margin: '0 10px 35px 10px',
-            aspectRatio: '252 / 132'
-        }}>
-            {/* Duck Image - Left side */}
-            <motion.img
-                src="/src/assets/images/duck.png"
-                alt="Duck"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay }}
-                style={{
-                    position: 'absolute',
-                    width: '48%', // Approx 50% - gap
-                    height: '92%', // 0.611 * 1.5 = 0.9165
-                    objectFit: 'contain',
-                    zIndex: 2,
-                    left: '-3%',
-                    bottom: '-25%' // -(0.611 * 1.5) / 3 = -0.305. Wait, original math: -(innerHeight * 1.5) / 3. innerHeight is 0.611*H. So -(0.611*H * 1.5)/3 = -0.3055*H. So -30%.
-                }}
-            />
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay }}
+            className="relative mx-1 mt-16 shadow-lg"
+            style={{
+                background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%)',
+                borderRadius: '5px',
+            }}
+        >
+            <div className="relative p-6">
+                {/* Left Content */}
+                <div className="relative z-10">
+                    {/* Title */}
+                    <h3 className="text-sm font-bold text-gray-800 mb-4">
+                        정책자금 종류
+                    </h3>
 
-            {/* Top Card - Higher z-index */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay }}
-                style={{
-                    position: 'absolute',
-                    width: '48%',
-                    height: '61%',
-                    background: 'linear-gradient(289.66deg, #E6E6E6 1.41%, #D5D5D5 95.2%)',
-                    boxShadow: '3px 4px 5.2px rgba(0, 0, 0, 0.29), -4px -3px 8.5px rgba(255, 255, 255, 0.75)',
-                    borderRadius: '12px',
-                    zIndex: 2,
-                    right: '5%',
-                    bottom: '6%',
-                    padding: '4%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    gap: '4%'
-                }}
-            >
-                {/* Item 1 */}
-                <div className="flex items-center gap-1.5">
-                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
-                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">경영 운영 지원자금</span>
+                    {/* Items List */}
+                    <div className="space-y-3">
+                        {items.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: delay + 0.1 * (index + 1) }}
+                                className="flex items-center gap-2"
+                            >
+                                <div className="w-4 h-4 flex-shrink-0">
+                                    <img
+                                        src={item.icon}
+                                        alt=""
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+                                <span className="text-xs text-gray-700 font-medium whitespace-nowrap">
+                                    {item.text}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Item 2 */}
-                <div className="flex items-center gap-1.5">
-                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
-                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">창업 벤처자금</span>
-                </div>
-
-                {/* Item 3 */}
-                <div className="flex items-center gap-1.5">
-                    <img src="/src/assets/icons/check.png" alt="check" className="w-4 h-4" />
-                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-medium whitespace-nowrap">R&D 기술 자금</span>
-                </div>
-            </motion.div>
-
-            {/* Bottom Card - Lower z-index */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: delay + 0.1 }}
-                style={{
-                    position: 'absolute',
-                    left: '1%',
-                    right: '1%',
-                    height: '100%',
-                    background: 'linear-gradient(321.5deg, #FFFFFF -11.34%, #CFCFCF 103.54%)',
-                    borderRadius: '15px',
-                    zIndex: 1,
-                    padding: '6%'
-                }}
-            >
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 text-left">
-                    정책자금 종류 A to Z
-                </div>
-            </motion.div>
-        </div>
+                {/* Right Image - Overlapping */}
+                <motion.div
+                    className="absolute bottom-1 right-0 z-0"
+                >
+                    <img
+                        src="/src/assets/images/bear.png"
+                        alt="Bear"
+                        className="object-contain"
+                        style={{ width: '200px', height: '200px' }}
+                    />
+                </motion.div>
+            </div>
+        </motion.div>
     );
 };
 
