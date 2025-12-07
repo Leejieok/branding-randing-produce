@@ -27,7 +27,7 @@ const ApprovalGauge: FC<ApprovalGaugeProps> = ({
       <div className="relative inline-block w-32 md:w-40 lg:w-48">
         {/* SVG Gauge Part */}
         <svg
-          viewBox="0 0 200 110"
+          viewBox="0 70 200 35"
           className="w-full h-auto overflow-visible"
         >
           <defs>
@@ -90,11 +90,27 @@ const ApprovalGauge: FC<ApprovalGaugeProps> = ({
           - width를 50%로 줄여서 게이지 안쪽으로 들어오게 함
           - top: 90%로 설정하여 SVG 아크의 중심점(y=100)과 div의 중심을 일치시킴
         */}
+
+        {/* Background Circle - 뒤에 위치할 큰 써클 (그라데이션, 외곽선 제거) */}
+        <div
+          className="absolute left-1/2 top-[90%] -translate-x-1/2 -translate-y-1/2 z-5"
+          style={{ width: '60%', aspectRatio: '1/1' }}
+        >
+          <div
+            className="w-full h-full rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+            style={{ background: 'linear-gradient(45deg, #5F5F5F 0%, #C5C5C5 100%)' }}
+          ></div>
+        </div>
+
+        {/* Front Circle - 앞에 위치할 메인 써클 (뉴모피즘, 외곽선 제거) */}
         <div
           className="absolute left-1/2 top-[90%] -translate-x-1/2 -translate-y-1/2 z-10"
           style={{ width: '50%', aspectRatio: '1/1' }}
         >
-          <div className="w-full h-full bg-white rounded-full flex flex-col items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.08)] border-[4px] md:border-[6px] border-gray-100">
+          <div
+            className="w-full h-full bg-white rounded-full flex flex-col items-center justify-center"
+            style={{ boxShadow: '4px 3px 4px rgba(0, 0, 0, 0.25), -3px -3px 4px rgba(255, 255, 255, 0.39)' }}
+          >
             <p className="text-[10px] md:text-[11px] text-gray-500 font-bold mb-0 leading-none">
               {label}
             </p>

@@ -1,9 +1,10 @@
 import Layout from './components/Layout';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import MainContent from './components/MainContent';
+// import MainContent from './components/MainContent';
 import ServiceFeatures from './components/ServiceFeatures';
-import ContentSection from './components/ContentSection';
+// import ContentSection from './components/ContentSection';
+import NewSection from './components/NewSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -11,12 +12,11 @@ function App() {
     <Layout>
       <Navbar />
       <Hero />
-
-
       <ServiceFeatures />
-      <MainContent />
+      <NewSection />
+      {/* <MainContent /> */}
 
-
+      {/* 
       <ContentSection
         title="감당하기 힘든 빚, 혼자 고민하지 마세요"
         description="개인회생, 개인파산, 신용회복... 복잡하고 어려운 채무 조정 절차, 정책비서가 든든한 버팀목이 되어드리겠습니다."
@@ -50,6 +50,7 @@ function App() {
         ]}
         imageSrc="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000"
       />
+      */}
 
       <section className="py-20 bg-primary text-white text-center">
         <div className="container mx-auto px-6">

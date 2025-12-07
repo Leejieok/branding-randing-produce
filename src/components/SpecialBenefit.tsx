@@ -10,53 +10,48 @@ const SpecialBenefit: FC<SpecialBenefitProps> = ({
 }) => {
     const benefits = [
         {
-            icon: '📊',
-            title: '초고속승인',
-            subtitle: '압계좌 속도로 승인,',
-            description: '접수부터 승인까지 초고속 처리'
+            icon: '/src/assets/icons/special01.png',
+            title: '초고속 승인',
+            subtitle: ['업계 최고 속도로 상담,', '접수부터 승인까지 초고속 처리'],
+            description: ''
+        },
+        {
+            icon: '/src/assets/icons/special02.png',
+            title: '사후 관리 시스템',
+            subtitle: ['승인 후에도 계속', '관리되며 상담 서비스를 제공'],
+            description: ''
+        },
+        {
+            icon: '/src/assets/icons/special03.png',
+            title: ['자금의', '유형에 맞춰'],
+            subtitle: '',
+            description: ''
+        },
+        {
+            icon: '/src/assets/icons/special04.png',
+            title: ['업종별 특화된', '전문가 상담'],
+            subtitle: '',
+            description: ''
         },
         {
             icon: '💰',
-            title: '자금의',
-            subtitle: '운용이 막힌',
+            title: '무방문 접수',
+            subtitle: ['모든 절차를 온라인으로', '진행이 가능한 시스템'],
             description: ''
         },
         {
-            icon: '📋',
-            title: '전문 관리팀 배정',
-            subtitle: '업종별 특화된 맞춤형',
-            description: '자금 솔루션을 제안하고 최적의 조건을 제안'
-        },
-        {
-            icon: '📋',
-            title: '전문 관리팀 배정',
-            subtitle: '업종별 특화된 맞춤형',
-            description: '자금 솔루션을 제안하고 최적의 조건을 제안'
-        },
-        {
-            icon: '👤',
-            title: '사후 관리 시스템',
-            subtitle: '승인 후에도 계속',
-            description: '관리팀이 사업 성패를 책임'
-        },
-        {
-            icon: '💼',
-            title: '업종별 특화된',
-            subtitle: '전문가 상담',
+            icon: '💰',
+            title: '서류 발급 대행',
+            subtitle: ['수많은 경험을 갖춘', '승인 최적화된\n사업계획서 작성과 철저한 서류 준비'],
             description: ''
         },
         {
-            icon: '📋',
-            title: '전문 관리팀 배정',
-            subtitle: '업종별 특화된 맞춤형',
-            description: '자금 솔루션을 제안하고 최적의 조건을 제안'
+            icon: '💰',
+            title: '실시간 추적 시스템',
+            subtitle: ['모든 진행상황을', '실시간으로 투명하게\n 공유 및 확인가능'],
+            description: ''
         },
-        {
-            icon: '📋',
-            title: '전문 관리팀 배정',
-            subtitle: '업종별 특화된 맞춤형',
-            description: '자금 솔루션을 제안하고 최적의 조건을 제안'
-        },
+
     ];
 
     return (
@@ -66,40 +61,52 @@ const SpecialBenefit: FC<SpecialBenefitProps> = ({
             transition={{ duration: 0.6, delay }}
             className="relative mt-8 -mx-4"
         >
-            {/* Horizontal Scroll Container */}
+            {/* Horizontal Scroll Container with 2 Rows */}
             <div className="overflow-x-auto scrollbar-hide px-4">
-                <div className="flex gap-3 pb-4">
+                <div className="grid grid-rows-2 grid-flow-col gap-3 pb-4" style={{ gridAutoColumns: '280px', gridAutoRows: '110px' }}>
                     {benefits.map((benefit, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: delay + 0.05 * (index + 1) }}
-                            className="flex-shrink-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-4 border border-gray-700 min-w-[160px] max-w-[160px]"
+                            className="rounded-lg p-4 border border-gray-700 flex flex-col justify-between"
+                            style={{ backgroundColor: '#3D3F43' }}
                         >
-                            {/* Icon */}
-                            <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg flex items-center justify-center text-2xl mb-3">
-                                {benefit.icon}
-                            </div>
-
                             {/* Title */}
-                            <h3 className="text-sm font-bold text-white mb-2 leading-tight">
-                                {benefit.title}
+                            <h3 className="text-xl font-bold text-white leading-tight">
+                                {Array.isArray(benefit.title) ? benefit.title.join(' ') : benefit.title}
                             </h3>
 
-                            {/* Subtitle */}
-                            {benefit.subtitle && (
-                                <p className="text-xs text-cyan-400 mb-1 leading-tight">
-                                    {benefit.subtitle}
-                                </p>
-                            )}
+                            {/* Icon + Subtitle (가로 배치) */}
+                            <div className="flex flex-row items-end justify-between gap-2">
+                                {/* Icon */}
+                                <div className="w-16 h-16 rounded-lg flex items-center justify-center text-3xl flex-shrink-0">
+                                    {benefit.icon.startsWith('/') || benefit.icon.includes('.') ? (
+                                        <img src={benefit.icon} alt="" className="w-12 h-12 object-contain" />
+                                    ) : (
+                                        benefit.icon
+                                    )}
+                                </div>
 
-                            {/* Description */}
-                            {benefit.description && (
-                                <p className="text-xs text-gray-400 leading-tight">
-                                    {benefit.description}
-                                </p>
-                            )}
+                                {/* Subtitle */}
+                                {benefit.subtitle && (
+                                    <div className="text-end text-xs text-cyan-400 leading-tight">
+                                        {Array.isArray(benefit.subtitle)
+                                            ? benefit.subtitle.map((line, i) => (
+                                                <div key={i}>
+                                                    {line.split('\n').map((subline, j) => (
+                                                        <div key={j}>{subline}</div>
+                                                    ))}
+                                                </div>
+                                            ))
+                                            : benefit.subtitle.split('\n').map((line, i) => (
+                                                <div key={i}>{line}</div>
+                                            ))
+                                        }
+                                    </div>
+                                )}
+                            </div>
                         </motion.div>
                     ))}
                 </div>

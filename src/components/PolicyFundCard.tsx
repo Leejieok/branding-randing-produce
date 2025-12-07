@@ -25,16 +25,16 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                 borderRadius: '5px',
             }}
         >
-            <div className="relative p-6">
+            <div className="relative px-3 py-3">
                 {/* Left Content */}
                 <div className="relative z-10">
                     {/* Title */}
-                    <h3 className="text-sm font-bold text-gray-800 mb-4">
+                    <h3 className="text-sm font-bold text-gray-800 mb-3 tracking-tight leading-tight">
                         정책자금 종류
                     </h3>
 
                     {/* Items List */}
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                         {items.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -50,26 +50,26 @@ const PolicyFundCard: FC<PolicyFundCardProps> = ({
                                         className="w-full h-full object-contain"
                                     />
                                 </div>
-                                <span className="text-xs text-gray-700 font-medium whitespace-nowrap">
+                                <span className="text-xs text-gray-700 font-medium whitespace-nowrap tracking-tight leading-tight">
                                     {item.text}
                                 </span>
                             </motion.div>
                         ))}
                     </div>
                 </div>
-
-                {/* Right Image - Overlapping */}
-                <motion.div
-                    className="absolute bottom-1 right-0 z-0"
-                >
-                    <img
-                        src="/src/assets/images/bear.png"
-                        alt="Bear"
-                        className="object-contain"
-                        style={{ width: '200px', height: '200px' }}
-                    />
-                </motion.div>
             </div>
+
+            {/* Right Image - Overlapping */}
+            <motion.div
+                className="absolute bottom-0 right-0 z-0"
+            >
+                <img
+                    src="/src/assets/images/bear.png"
+                    alt="Bear"
+                    className="object-contain"
+                    style={{ height: '180px' }}
+                />
+            </motion.div>
         </motion.div>
     );
 };

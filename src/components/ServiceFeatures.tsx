@@ -3,95 +3,106 @@ import { motion } from 'framer-motion';
 
 const ServiceFeatures: FC = () => {
   const features = [
-    {
-      icon: '📚',
-      title: '자금의',
-      subtitle: '유형에 맞춰',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: '📋',
-      title: '업종별 특화된',
-      subtitle: '전문가 상담',
-      color: 'from-green-500 to-green-600'
-    },
-    {
-      icon: '📚',
-      title: '자금의',
-      subtitle: '유형에 맞춰',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: '📋',
-      title: '업종별 특화된',
-      subtitle: '전문가 상담',
-      color: 'from-green-500 to-green-600'
-    }
+    '사업자등록 보유 신청가능',
+    '신용점수 450점 이상 신청가능',
+    '창업 3개월 이상 신청가능',
+    '예비 창업자 신청가능',
+    '국내 사업장 보유 신청가능',
+    '휴업, 폐업이 아닌 경우 신청가능',
+    '유흥업, 향락산업, 도박이 아닌 경우 신청가능'
   ];
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white py-10 px-4">
-      <div className="container mx-auto max-w-4xl">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <h2 className="text-2xl md:text-3xl font-bold lg:mb-4">
-            <span className="text-white">업계 최고 속도로</span>
-            {/* <div className="w-32 h-1 bg-gradient-to-r from-[#C6F1F7] via-[#FFADF4] via-[#CB9BFF] to-[#C2E9CD] mt-2 mb-4"></div> */}
-          </h2>
-          <p className="text-2xl md:text-xl mb-2">
-            상담, 접수부터 승인까지
-          </p>
-          <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#C6F1F7] via-[#FFADF4] via-[#CB9BFF] to-[#C2E9CD] bg-clip-text text-transparent">
-            초고속 처리
-          </p>
-          <p className="text-base md:text-lg mt-4 text-gray-300">
-            승인 후에도 계속 관리되며
-            <br />
-            상담 서비스를 제공!
-          </p>
-        </motion.div>
+    <section className="relative w-full bg-[#2A2A2A] text-white py-16 px-4 overflow-hidden">
+      <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="flex flex-col items-center">
+          {/* 상단 텍스트 */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              저도 가능할까요?
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300">
+              하나씩 체크해보세요!
+            </p>
+          </motion.div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-2 gap-4">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative"
-            >
-              <div
-                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-purple-500/20"
-                style={{
-                  backdropFilter: 'blur(10px)',
-                }}
-              >
-                {/* Icon */}
-                <div className="mb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center text-3xl shadow-lg transform -rotate-6`}>
-                    {feature.icon}
+          {/* OK 손 이미지 + 꽃가루 오버레이 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-8 relative"
+          >
+            {/* 꽃가루 배경 - 손 이미지 위에 오버레이 */}
+            <div
+              className="absolute inset-0 z-10 pointer-events-none"
+              style={{
+                backgroundImage: 'url(/src/assets/images/pretty.png)',
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            />
+
+            <img
+              src="/src/assets/images/ok.png"
+              alt="OK Hand"
+              className="w-64 h-64 md:w-80 md:h-80 object-contain relative z-0"
+            />
+          </motion.div>
+
+          {/* 체크리스트 카드 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl w-full max-w-md"
+          >
+            <div className="space-y-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  {/* 체크박스 아이콘 */}
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="2" width="20" height="20" rx="4" fill="#00D9FF" />
+                      <path
+                        d="M7 12L10.5 15.5L17 9"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
-                </div>
 
-                {/* Text */}
-                <div>
-                  <h3 className="text-xs lg:text-xl font-bold text-white mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-xs lg:text-xl font-semibold bg-gradient-to-r from-[#C6F1F7] via-[#FFADF4] via-[#CB9BFF] to-[#C2E9CD] bg-clip-text text-transparent">
-                    {feature.subtitle}
+                  {/* 텍스트 */}
+                  <p className="text-gray-800 text-base md:text-lg font-medium leading-relaxed">
+                    {feature.split(' ').map((word, i) => (
+                      <span key={i}>
+                        {word.includes('신청가능') ? (
+                          <span className="text-red-500 font-bold">{word}</span>
+                        ) : (
+                          word
+                        )}
+                        {i < feature.split(' ').length - 1 && ' '}
+                      </span>
+                    ))}
                   </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
