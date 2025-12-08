@@ -1,8 +1,10 @@
 import { type FC, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import navLogo from '../assets/images/navlogo.png';
+import { useIsMobile } from '../hooks/useIsMobile';
 
-const Navbar: FC = () => {
+// 모바일 네비게이션 컴포넌트
+const MobileNav: FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -12,11 +14,11 @@ const Navbar: FC = () => {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-[#5B4E7E]/95 backdrop-blur-lg">
             <div className="container mx-auto px-4">
-                <div className="flex items-center h-14 md:h-16 relative">
+                <div className="flex items-center h-14 relative">
                     {/* Mobile Menu Button - Left */}
                     <button
                         onClick={toggleMenu}
-                        className="md:hidden w-8 h-8 flex flex-col items-center justify-center gap-1 focus:outline-none z-10"
+                        className="w-8 h-8 flex flex-col items-center justify-center gap-1 focus:outline-none z-10"
                         aria-label="메뉴"
                     >
                         <motion.span
@@ -44,36 +46,13 @@ const Navbar: FC = () => {
                             <img
                                 src={navLogo}
                                 alt="정책비서"
-                                className="h-8 md:h-10 w-auto"
+                                className="h-8 w-auto"
                             />
                         </motion.div>
                     </div>
 
-                    {/* Desktop Menu - Right */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="hidden md:flex items-center gap-8 ml-auto"
-                    >
-                        <a href="#services" className="text-white/90 hover:text-white transition-colors duration-200 font-medium">
-                            서비스
-                        </a>
-                        <a href="#process" className="text-white/90 hover:text-white transition-colors duration-200 font-medium">
-                            진행과정
-                        </a>
-                        <a href="#reviews" className="text-white/90 hover:text-white transition-colors duration-200 font-medium">
-                            후기
-                        </a>
-                        <button className="px-4 py-1.5 bg-transparent text-white text-sm rounded-full font-semibold border-[3px] border-transparent bg-clip-padding relative overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30">
-                            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 to-green-400 opacity-100"></span>
-                            <span className="absolute inset-[3px] rounded-full bg-[#5B4E7E]"></span>
-                            <span className="relative z-10 text-white">상담신청</span>
-                        </button>
-                    </motion.div>
-
                     {/* Mobile Consultation Button - Right */}
-                    <button className="md:hidden px-3 py-1 bg-transparent text-white text-xs rounded-full font-semibold border-[3px] border-transparent bg-clip-padding relative overflow-hidden transition-all duration-300 ml-auto z-10">
+                    <button className="px-3 py-1 bg-transparent text-white text-xs rounded-full font-semibold border-[3px] border-transparent bg-clip-padding relative overflow-hidden transition-all duration-300 ml-auto z-10">
                         <span className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 to-green-400 opacity-100"></span>
                         <span className="absolute inset-[3px] rounded-full bg-[#5B4E7E]"></span>
                         <span className="relative z-10 text-white">상담예약</span>
@@ -89,7 +68,7 @@ const Navbar: FC = () => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden bg-[#5B4E7E]/98 backdrop-blur-lg border-t border-white/10 overflow-hidden"
+                        className="bg-[#5B4E7E]/98 backdrop-blur-lg border-t border-white/10 overflow-hidden"
                     >
                         <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
                             <a
@@ -119,6 +98,70 @@ const Navbar: FC = () => {
             </AnimatePresence>
         </nav>
     );
+};
+
+// PC 네비게이션 컴포넌트
+const PcNav: FC = () => {
+    return (
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#5B4E7E]/95 backdrop-blur-lg">
+            <div className="container mx-auto px-8">
+                <div className="flex items-center h-20 relative">
+                    {/* Logo - Left */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex-shrink-0"
+                    >
+                        <img
+                            src={navLogo}
+                            alt="정책비서"
+                            className="h-12 w-auto"
+                        />
+                    </motion.div>
+
+                    {/* Desktop Menu - Center (viewport 기준) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="fixed left-1/2 transform -translate-x-1/2 flex items-center gap-12"
+                    >
+                        <a href="#services" className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-lg">
+                            서비스
+                        </a>
+                        <a href="#process" className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-lg">
+                            진행과정
+                        </a>
+                        <a href="#reviews" className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-lg">
+                            후기
+                        </a>
+                    </motion.div>
+
+                    {/* Consultation Button - Right */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="ml-auto"
+                    >
+                        <button className="px-6 py-2 bg-transparent text-white text-sm rounded-full font-semibold border-[3px] border-transparent bg-clip-padding relative overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30">
+                            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 to-green-400 opacity-100"></span>
+                            <span className="absolute inset-[3px] rounded-full bg-[#5B4E7E]"></span>
+                            <span className="relative z-10 text-white">상담신청</span>
+                        </button>
+                    </motion.div>
+                </div>
+            </div>
+        </nav>
+    );
+};
+
+// 메인 Navbar 컴포넌트
+const Navbar: FC = () => {
+    const isMobile = useIsMobile();
+
+    return isMobile ? <MobileNav /> : <PcNav />;
 };
 
 export default Navbar;

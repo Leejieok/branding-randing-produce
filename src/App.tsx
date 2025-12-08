@@ -6,6 +6,8 @@ import ServiceFeatures from './components/ServiceFeatures';
 // import ContentSection from './components/ContentSection';
 import NewSection from './components/NewSection';
 import Footer from './components/Footer';
+import ConsultationCTA from './components/ConsultationCTA';
+import ComparisonSection from './components/ComparisonSection';
 
 function App() {
   return (
@@ -52,16 +54,9 @@ function App() {
       />
       */}
 
-      <section className="py-20 bg-primary text-white text-center">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            모든 채무를 정리! 지금 바로 상담하세요
-          </h2>
-          <button className="px-8 py-4 bg-accent hover:bg-accent-hover text-white rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/30 transition-all duration-300">
-            무료 상담 신청하기
-          </button>
-        </div>
-      </section>
+      <ConsultationCTA />
+
+      <ComparisonSection />
 
       <Footer />
     </Layout>
