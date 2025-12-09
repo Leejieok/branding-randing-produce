@@ -8,7 +8,7 @@ interface ApprovalGaugeProps {
 }
 
 // 공통 SVG Gauge 컴포넌트
-const GaugeSVG: FC<{ percentage: number; percentageDecimal: number }> = ({ percentage, percentageDecimal }) => {
+const GaugeSVG: FC<{ percentageDecimal: number }> = ({ percentageDecimal }) => {
   const radius = 75;
   const cx = 100;
   const cy = 100;
@@ -90,7 +90,7 @@ const MobileApprovalGauge: FC<ApprovalGaugeProps> = ({
       className="relative flex flex-col items-center justify-center w-fit mx-auto"
     >
       <div className="relative inline-block w-32">
-        <GaugeSVG percentage={percentage} percentageDecimal={percentageDecimal} />
+        <GaugeSVG percentageDecimal={percentageDecimal} />
 
         {/* Background Circle */}
         <div
@@ -145,7 +145,7 @@ const PcApprovalGauge: FC<ApprovalGaugeProps> = ({
       className="relative flex flex-col items-center justify-center w-fit ml-auto"
     >
       <div className="relative inline-block w-72">
-        <GaugeSVG percentage={percentage} percentageDecimal={percentageDecimal} />
+        <GaugeSVG percentageDecimal={percentageDecimal} />
 
         {/* Background Circle */}
         <div

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15.45 7.95">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_무제_그라디언트_48);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: url(#_무제_그라디언트_698);
+      }
+
+      .cls-4 {
+        fill: url(#_무제_그라디언트_632);
+      }
+    </style>
+    <linearGradient id="_무제_그라디언트_48" data-name="무제 그라디언트 48" x1=".07" y1="4.25" x2="15.35" y2="4.25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f44242"/>
+      <stop offset="1" stop-color="#1a6de5"/>
+    </linearGradient>
+    <linearGradient id="_무제_그라디언트_698" data-name="무제 그라디언트 698" x1="15.01" y1=".32" x2="10.48" y2="4.49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#107deb"/>
+      <stop offset=".23" stop-color="#0c63cc"/>
+      <stop offset=".74" stop-color="#042280"/>
+      <stop offset="1" stop-color="#000058"/>
+    </linearGradient>
+    <linearGradient id="_무제_그라디언트_632" data-name="무제 그라디언트 632" x1="1.02" y1="7.3" x2="5.25" y2="3.41" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f44242"/>
+      <stop offset="1" stop-color="#50142d"/>
+    </linearGradient>
+  </defs>
+  <g id="_레이어_1-2" data-name="레이어 1">
+    <g>
+      <path class="cls-1" d="M15.33,4.39c.03.23,0,.48,0,.59-.06,1.2-1.09,2.37-2.2,2.76-3.86,1.36-5.72-4.09-8.59-5.28C2.47,1.59.71,2.09.08,3.53.04,1.98,1.33.83,2.78.6,6.51.02,8.25,3.61,10.7,5.53c1.75,1.37,3.91.69,4.63-1.14Z"/>
+      <path class="cls-2" d="M12.81,6.16c.37-.29.74-.81.85-1.06.8-1.89-.83-3.78-2.66-2.68-.53.32-1.26.92-1.7,1.39l-1.38-1.41C10.03-.31,12.94-.83,14.75,1.39c1.57,1.92.34,4.51-1.94,4.76Z"/>
+      <path class="cls-3" d="M12.81,6.16c.37-.29.74-.81.85-1.06.8-1.89-.83-3.78-2.66-2.68-.53.32-1.26.92-1.7,1.39l-1.38-1.41C10.03-.31,12.94-.83,14.75,1.39c1.57,1.92.34,4.51-1.94,4.76Z"/>
+      <path class="cls-2" d="M2.79,2.24c-.38.33-.4.38-.59.63-1.33,1.8.77,4.09,2.69,2.61.23-.18.97-.7,1.48-1.32l1.34,1.44c-1.34,1.97-4.37,3.2-6.44,1.67C-1,5.6-.06,1.99,2.79,2.24Z"/>
+      <path class="cls-4" d="M2.79,2.24c-.38.33-.4.38-.59.63-1.33,1.8.77,4.09,2.69,2.61.23-.18.97-.7,1.48-1.32l1.34,1.44c-1.34,1.97-4.37,3.2-6.44,1.67C-1,5.6-.06,1.99,2.79,2.24Z"/>
+    </g>
+  </g>
+</svg>
