@@ -2,6 +2,10 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useIsMobile';
 
+// 이미지 import
+import prettyImage from '../assets/images/pretty.png';
+import okImage from '../assets/images/ok.png';
+
 const features = [
   '사업자등록 보유 신청가능',
   '신용점수 450점 이상 신청가능',
@@ -81,14 +85,14 @@ const MobileServiceFeatures: FC = () => {
             <div
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                backgroundImage: 'url(/src/assets/images/pretty.png)',
+                backgroundImage: `url(${prettyImage})`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
               }}
             />
             <img
-              src="/src/assets/images/ok.png"
+              src={okImage}
               alt="OK Hand"
               className="w-48 h-48 object-contain relative z-0"
             />
@@ -144,14 +148,14 @@ const PcServiceFeatures: FC = () => {
             <div
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                backgroundImage: 'url(/src/assets/images/pretty.png)',
+                backgroundImage: `url(${prettyImage})`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
               }}
             />
             <img
-              src="/src/assets/images/ok.png"
+              src={okImage}
               alt="OK Hand"
               className="w-80 h-80 object-contain relative z-0"
             />

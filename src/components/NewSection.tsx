@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import GradientButton from './GradientButton';
 import { useIsMobile } from '../hooks/useIsMobile';
 
+// 이미지 import
+import calendarIcon from '../assets/icons/CALENDAR.png';
+
 const services = [
   {
     title: '전문 관리팀 배정',
@@ -42,7 +45,7 @@ const ServiceCard: FC<{ service: { title: string; description: string }; index: 
       {/* 캘린더 아이콘 */}
       <div className="mb-4">
         <img
-          src="/src/assets/icons/CALENDAR.png"
+          src={calendarIcon}
           alt="Calendar Icon"
           className="w-20 h-20 md:w-24 md:h-24 object-contain"
         />

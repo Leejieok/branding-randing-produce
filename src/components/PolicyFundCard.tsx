@@ -2,14 +2,20 @@ import { type FC } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useIsMobile';
 
+// 이미지 import
+import bankIcon from '../assets/icons/bank.svg';
+import ideaIcon from '../assets/icons/idea.svg';
+import moneyIcon from '../assets/icons/money.svg';
+import bearImage from '../assets/images/bear.png';
+
 interface PolicyFundCardProps {
     delay?: number;
 }
 
 const items = [
-    { icon: '/src/assets/icons/bank.svg', text: '경영 운영 지원자금' },
-    { icon: '/src/assets/icons/idea.svg', text: '창업 벤처자금' },
-    { icon: '/src/assets/icons/money.svg', text: 'R&D 기술 자금' }
+    { icon: bankIcon, text: '경영 운영 지원자금' },
+    { icon: ideaIcon, text: '창업 벤처자금' },
+    { icon: moneyIcon, text: 'R&D 기술 자금' }
 ];
 
 // 모바일 PolicyFundCard 컴포넌트
@@ -66,7 +72,7 @@ const MobilePolicyFundCard: FC<PolicyFundCardProps> = ({
                 className="absolute bottom-0 right-0 z-0"
             >
                 <img
-                    src="/src/assets/images/bear.png"
+                    src={bearImage}
                     alt="Bear"
                     className="object-contain"
                     style={{ height: '180px' }}
@@ -130,7 +136,7 @@ const PcPolicyFundCard: FC<PolicyFundCardProps> = ({
                 className="absolute bottom-0 right-0 z-0"
             >
                 <img
-                    src="/src/assets/images/bear.png"
+                    src={bearImage}
                     alt="Bear"
                     className="object-contain"
                     style={{ height: '280px' }}

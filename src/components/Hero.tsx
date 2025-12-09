@@ -5,6 +5,9 @@ import PolicyFundCard from './PolicyFundCard';
 import SpecialBenefit from './SpecialBenefit';
 import { useIsMobile } from '../hooks/useIsMobile';
 
+// 이미지 import
+import chartLineImage from '../assets/images/chart-line.png';
+
 // 모바일 Hero 컴포넌트
 const MobileHero: FC = () => {
   return (
@@ -17,7 +20,7 @@ const MobileHero: FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url(/src/assets/images/chart-line.png)',
+          backgroundImage: `url(${chartLineImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.1,
@@ -66,7 +69,7 @@ const PcHero: FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url(/src/assets/images/chart-line.png)',
+          backgroundImage: `url(${chartLineImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.1,

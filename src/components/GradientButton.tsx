@@ -2,6 +2,9 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import type { HTMLMotionProps } from 'framer-motion';
 
+// 이미지 import
+import logoImage from '../assets/images/logo.png';
+
 interface GradientButtonProps extends HTMLMotionProps<"button"> {
   text: string;
 }
@@ -32,9 +35,9 @@ const GradientButton: FC<GradientButtonProps> = ({ text, className = '', ...prop
       {/* 왼쪽 로고 아이콘 */}
       <div className="absolute left-[20px] flex items-center justify-center w-[29px]">
         <img
-          src="/src/assets/images/logo.png"
+          src={logoImage}
           alt="logo"
-          className="w-full object-contain filter brightness-0 invert" // 흰색으로 변경 시도 (안되면 원본)
+          className="w-full object-contain filter brightness-0 invert"
           style={{ height: '14px' }}
         />
       </div>
