@@ -203,7 +203,7 @@ const HeroBenefits: FC = () => {
                     transition={{ duration: 0.6, delay: 0.7 }}
                     className="mt-12 text-center"
                 >
-                    <button className="w-full max-w-md px-8 py-5 bg-gradient-to-r from-secondary via-primary to-tertiary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/50 hover:shadow-tertiary/50 transition-all duration-300 hover:scale-105">
+                    <button className="w-full max-w-md mx-auto block px-8 py-5 bg-gradient-to-r from-secondary via-primary to-tertiary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/50 hover:shadow-tertiary/50 transition-all duration-300 hover:scale-105">
                         무료 상담 신청하기
                     </button>
                 </motion.div>

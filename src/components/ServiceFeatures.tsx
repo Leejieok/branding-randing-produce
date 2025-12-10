@@ -1,10 +1,11 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useIsMobile';
+import Lottie from 'lottie-react';
 
 // 이미지 import
-import prettyImage from '../assets/images/pretty.png';
 import okImage from '../assets/images/ok.png';
+import congratulationAnimation from '../assets/motion/congratulation.json';
 
 const features = [
   '사업자등록 보유 신청가능',
@@ -15,6 +16,27 @@ const features = [
   '휴업, 폐업이 아닌 경우 신청가능',
   '유흥업, 향락산업, 도박이 아닌 경우 신청가능'
 ];
+
+// Lottie 축하 애니메이션 컴포넌트
+const CelebrationEffect: FC<{ size?: string }> = ({ size = '300px' }) => {
+  return (
+    <div
+      className="absolute inset-0 z-10 pointer-events-none"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <Lottie
+        animationData={congratulationAnimation}
+        loop={false}
+        style={{ width: size, height: size }}
+      />
+    </div>
+  );
+};
+
 
 // 체크리스트 아이템 컴포넌트
 const ChecklistItem: FC<{ feature: string; index: number }> = ({ feature, index }) => (
@@ -82,15 +104,7 @@ const MobileServiceFeatures: FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6 relative"
           >
-            <div
-              className="absolute inset-0 z-10 pointer-events-none"
-              style={{
-                backgroundImage: `url(${prettyImage})`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-            />
+            <CelebrationEffect size="250px" />
             <img
               src={okImage}
               alt="OK Hand"
@@ -145,15 +159,7 @@ const PcServiceFeatures: FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-10 relative"
           >
-            <div
-              className="absolute inset-0 z-10 pointer-events-none"
-              style={{
-                backgroundImage: `url(${prettyImage})`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-            />
+            <CelebrationEffect size="400px" />
             <img
               src={okImage}
               alt="OK Hand"

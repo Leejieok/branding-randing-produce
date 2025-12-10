@@ -18,7 +18,9 @@ const MobileConsultationCTA: FC = () => {
         <p>10억 원까지 가능!</p>
         <p>지금 바로 상담신청 해보세요!</p>
         <img src={bearCTA} alt="Consultation Bear" className="mx-auto my-8 max-w-[200px]" />
-        <GradientButton text="무료 상담 신청하기" />
+        <div className="flex justify-center">
+          <GradientButton text="무료 상담 신청하기" />
+        </div>
       </div>
     </section>
   );
@@ -39,7 +41,9 @@ const PcConsultationCTA: FC = () => {
         <p className="text-2xl font-bold">10억 원까지 가능!</p>
         <p className="text-lg mt-2">지금 바로 상담신청 해보세요!</p>
         <img src={bearCTA} alt="Consultation Bear" className="mx-auto my-10 max-w-[300px]" />
-        <GradientButton text="무료 상담 신청하기" />
+        <div className="flex justify-center">
+          <GradientButton text="무료 상담 신청하기" />
+        </div>
       </div>
     </section>
   );
