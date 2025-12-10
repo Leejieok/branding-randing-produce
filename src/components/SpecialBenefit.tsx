@@ -1,6 +1,12 @@
 import { type FC } from 'react';
 import { motion } from 'framer-motion';
 
+// 이미지 import
+import special01 from '../assets/icons/special01.png';
+import special02 from '../assets/icons/special02.png';
+import special03 from '../assets/icons/special03.png';
+import special04 from '../assets/icons/special04.png';
+
 interface SpecialBenefitProps {
     delay?: number;
 }
@@ -10,25 +16,25 @@ const SpecialBenefit: FC<SpecialBenefitProps> = ({
 }) => {
     const benefits = [
         {
-            icon: '/src/assets/icons/special01.png',
+            icon: special01,
             title: '초고속 승인',
             subtitle: ['업계 최고 속도로 상담,', '접수부터 승인까지 초고속 처리'],
             description: ''
         },
         {
-            icon: '/src/assets/icons/special02.png',
+            icon: special02,
             title: '사후 관리 시스템',
             subtitle: ['승인 후에도 계속', '관리되며 상담 서비스를 제공'],
             description: ''
         },
         {
-            icon: '/src/assets/icons/special03.png',
+            icon: special03,
             title: ['자금의', '유형에 맞춰'],
             subtitle: '',
             description: ''
         },
         {
-            icon: '/src/assets/icons/special04.png',
+            icon: special04,
             title: ['업종별 특화된', '전문가 상담'],
             subtitle: '',
             description: ''
@@ -82,10 +88,10 @@ const SpecialBenefit: FC<SpecialBenefitProps> = ({
                             <div className="flex flex-row items-end justify-between gap-2">
                                 {/* Icon */}
                                 <div className="w-16 h-16 rounded-lg flex items-center justify-center text-3xl flex-shrink-0">
-                                    {benefit.icon.startsWith('/') || benefit.icon.includes('.') ? (
-                                        <img src={benefit.icon} alt="" className="w-12 h-12 object-contain" />
-                                    ) : (
+                                    {typeof benefit.icon === 'string' && benefit.icon.length <= 4 ? (
                                         benefit.icon
+                                    ) : (
+                                        <img src={benefit.icon} alt="" className="w-12 h-12 object-contain" />
                                     )}
                                 </div>
 
