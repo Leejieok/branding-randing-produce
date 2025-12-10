@@ -88,7 +88,7 @@ const SpecialBenefit: FC<SpecialBenefitProps> = ({
                             <div className="flex flex-row items-end justify-between gap-2">
                                 {/* Icon */}
                                 <div className="w-16 h-16 rounded-lg flex items-center justify-center text-3xl flex-shrink-0">
-                                    {typeof benefit.icon === 'string' && !benefit.icon.startsWith('/') && !benefit.icon.includes('.') ? (
+                                    {typeof benefit.icon === 'string' && benefit.icon.length <= 4 ? (
                                         benefit.icon
                                     ) : (
                                         <img src={benefit.icon} alt="" className="w-12 h-12 object-contain" />
