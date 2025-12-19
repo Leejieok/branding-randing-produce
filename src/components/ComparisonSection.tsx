@@ -391,7 +391,7 @@ const BenefitSection: FC<{ isMobile: boolean }> = ({ isMobile }) => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
         transition={{ duration: 0.6 }}
-        style={{ marginBottom: isMobile ? '40px' : '60px' }}
+        style={{ marginBottom: isMobile ? '40px' : '60px', textAlign: isMobile ? 'left' : 'center' }}
       >
         <span style={{ color: '#A5FECB', fontSize: isMobile ? '14px' : '16px', marginBottom: '12px', display: 'block' }}>
           정책비서에서는
@@ -413,7 +413,7 @@ const BenefitSection: FC<{ isMobile: boolean }> = ({ isMobile }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        style={{ marginBottom: isMobile ? '40px' : '60px' }}
+        style={{ marginBottom: isMobile ? '40px' : '60px', textAlign: isMobile ? 'left' : 'center' }}
       >
         <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: isMobile ? '14px' : '16px', lineHeight: 1.6 }}>
           각양각색의 케이스를 <br />

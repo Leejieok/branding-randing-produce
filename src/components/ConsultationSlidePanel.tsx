@@ -1,6 +1,8 @@
 import type { FC } from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { db } from '../firebase/config';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 interface ConsultationSlidePanelProps {
   isOpen: boolean;
@@ -42,27 +44,43 @@ const ConsultationSlidePanel: FC<ConsultationSlidePanelProps> = ({ isOpen, onClo
 
     setIsSubmitting(true);
 
-    // 실제 API 호출은 여기에 구현
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-
-    // 3초 후 패널 닫기
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      onClose();
-      setFormData({
-        companyName: '',
-        businessType: '',
-        name: '',
-        phone: '',
-        desiredAmount: '',
-        message: '',
-        quickSubmit: false,
-        privacyAgreed: false,
+    try {
+      // Firestore에 상담 신청 데이터 저장
+      await addDoc(collection(db, 'consultations'), {
+        companyName: formData.companyName,
+        businessType: formData.businessType,
+        name: formData.name,
+        phone: formData.phone,
+        desiredAmount: formData.desiredAmount,
+        message: formData.message,
+        quickSubmit: formData.quickSubmit,
+        createdAt: serverTimestamp(),
+        status: 'pending', // 대기중, completed: 완료
       });
-    }, 3000);
+
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+
+      // 3초 후 패널 닫기
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        onClose();
+        setFormData({
+          companyName: '',
+          businessType: '',
+          name: '',
+          phone: '',
+          desiredAmount: '',
+          message: '',
+          quickSubmit: false,
+          privacyAgreed: true,
+        });
+      }, 3000);
+    } catch (error) {
+      console.error('상담 신청 저장 오류:', error);
+      alert('상담 신청 중 오류가 발생했습니다. 다시 시도해 주세요.');
+      setIsSubmitting(false);
+    }
   };
 
   const businessTypes = [

@@ -130,7 +130,7 @@ const MobileApprovalGauge: FC<ApprovalGaugeProps> = ({
   );
 };
 
-// PC ApprovalGauge 컴포넌트
+// PC ApprovalGauge 컴포넌트 (2배 크기)
 const PcApprovalGauge: FC<ApprovalGaugeProps> = ({
   percentage = 94.65,
   label = '승인률',
@@ -142,9 +142,9 @@ const PcApprovalGauge: FC<ApprovalGaugeProps> = ({
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="relative flex flex-col items-center justify-center w-fit ml-auto"
+      className="relative flex flex-col items-center justify-center w-fit"
     >
-      <div className="relative inline-block w-72">
+      <div className="relative inline-block w-[400px]">
         <GaugeSVG percentageDecimal={percentageDecimal} />
 
         {/* Background Circle */}
@@ -153,7 +153,7 @@ const PcApprovalGauge: FC<ApprovalGaugeProps> = ({
           style={{ width: '60%', aspectRatio: '1/1' }}
         >
           <div
-            className="w-full h-full rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+            className="w-full h-full rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
             style={{ background: 'linear-gradient(45deg, #5F5F5F 0%, #C5C5C5 100%)' }}
           ></div>
         </div>
@@ -165,16 +165,16 @@ const PcApprovalGauge: FC<ApprovalGaugeProps> = ({
         >
           <div
             className="w-full h-full bg-white rounded-full flex flex-col items-center justify-center"
-            style={{ boxShadow: '4px 3px 4px rgba(0, 0, 0, 0.25), -3px -3px 4px rgba(255, 255, 255, 0.39)' }}
+            style={{ boxShadow: '8px 6px 8px rgba(0, 0, 0, 0.25), -6px -6px 8px rgba(255, 255, 255, 0.39)' }}
           >
-            <p className="text-base text-gray-500 font-bold mb-0 leading-none">
+            <p className="text-2xl text-gray-500 font-bold mb-1 leading-none">
               {label}
             </p>
-            <div className="flex items-baseline justify-center font-bold text-gray-900 leading-none mt-1">
-              <span className="text-4xl tracking-tighter">
+            <div className="flex items-baseline justify-center font-bold text-gray-900 leading-none mt-2">
+              <span className="text-6xl tracking-tighter">
                 {Math.floor(percentage)}
               </span>
-              <span className="text-base text-gray-800 ml-0.5">
+              <span className="text-2xl text-gray-800 ml-1">
                 .{(percentage % 1).toFixed(2).slice(2)}%
               </span>
             </div>

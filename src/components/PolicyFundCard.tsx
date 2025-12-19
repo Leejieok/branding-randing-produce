@@ -82,7 +82,7 @@ const MobilePolicyFundCard: FC<PolicyFundCardProps> = ({
     );
 };
 
-// PC PolicyFundCard 컴포넌트
+// PC PolicyFundCard 컴포넌트 (2배 크기)
 const PcPolicyFundCard: FC<PolicyFundCardProps> = ({
     delay = 0.2
 }) => {
@@ -91,38 +91,38 @@ const PcPolicyFundCard: FC<PolicyFundCardProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay }}
-            className="relative mx-4 mt-20 shadow-xl max-w-2xl"
+            className="relative shadow-xl max-w-4xl w-full"
             style={{
                 background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%)',
-                borderRadius: '10px',
+                borderRadius: '20px',
             }}
         >
-            <div className="relative px-8 py-6">
+            <div className="relative px-16 py-12">
                 {/* Left Content */}
                 <div className="relative z-10">
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-800 mb-6 tracking-tight leading-tight">
+                    <h3 className="text-4xl font-bold text-gray-800 mb-12 tracking-tight leading-tight">
                         정책자금 종류
                     </h3>
 
                     {/* Items List */}
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                         {items.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.4, delay: delay + 0.1 * (index + 1) }}
-                                className="flex items-center gap-4"
+                                className="flex items-center gap-8"
                             >
-                                <div className="w-8 h-8 flex-shrink-0">
+                                <div className="w-16 h-16 flex-shrink-0">
                                     <img
                                         src={item.icon}
                                         alt=""
                                         className="w-full h-full object-contain"
                                     />
                                 </div>
-                                <span className="text-lg text-gray-700 font-medium whitespace-nowrap tracking-tight leading-tight">
+                                <span className="text-3xl text-gray-700 font-medium whitespace-nowrap tracking-tight leading-tight">
                                     {item.text}
                                 </span>
                             </motion.div>
@@ -139,7 +139,7 @@ const PcPolicyFundCard: FC<PolicyFundCardProps> = ({
                     src={bearImage}
                     alt="Bear"
                     className="object-contain"
-                    style={{ height: '280px' }}
+                    style={{ height: '560px' }}
                 />
             </motion.div>
         </motion.div>

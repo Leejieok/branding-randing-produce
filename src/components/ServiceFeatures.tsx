@@ -5,6 +5,7 @@ import Lottie from 'lottie-react';
 
 // 이미지 import
 import okImage from '../assets/images/ok.png';
+import pcHandsImage from '../assets/images/pchands.png';
 import congratulationAnimation from '../assets/motion/congratulation.json';
 
 const features = [
@@ -135,51 +136,58 @@ const MobileServiceFeatures: FC = () => {
 const PcServiceFeatures: FC = () => {
   return (
     <section className="relative w-full bg-[#2A2A2A] text-white py-20 px-8 overflow-hidden">
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="flex flex-col items-center">
-          {/* 상단 텍스트 */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-5xl font-bold mb-4">
-              저도 가능할까요?
-            </h2>
-            <p className="text-2xl text-gray-300">
-              하나씩 체크해보세요!
-            </p>
-          </motion.div>
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* 2열 레이아웃 */}
+        <div className="flex flex-row items-center justify-between gap-16">
 
-          {/* OK 손 이미지 + 꽃가루 오버레이 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1.2 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-10 relative"
-          >
-            <CelebrationEffect size="400px" />
-            <img
-              src={okImage}
-              alt="OK Hand"
-              className="w-80 h-80 object-contain relative z-0"
-            />
-          </motion.div>
+          {/* 왼쪽: 텍스트 + OK 이미지 */}
+          <div className="flex-1 flex flex-col items-center">
+            {/* 상단 텍스트 */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-4xl font-bold mb-4">
+                저도 가능할까요?
+              </h2>
+              <p className="text-xl text-gray-300">
+                하나씩 체크해보세요!
+              </p>
+            </motion.div>
 
-          {/* 체크리스트 카드 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white rounded-3xl p-10 shadow-2xl w-full max-w-lg"
-          >
-            <div className="space-y-4">
-              {features.map((feature, index) => (
-                <ChecklistItem key={index} feature={feature} index={index} />
-              ))}
-            </div>
-          </motion.div>
+            {/* OK 손 이미지 + 꽃가루 오버레이 */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1.2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <CelebrationEffect size="300px" />
+              <img
+                src={pcHandsImage}
+                alt="PC Hands"
+                className="w-72 h-72 object-contain relative z-0"
+              />
+            </motion.div>
+          </div>
+
+          {/* 오른쪽: 체크리스트 카드 */}
+          <div className="flex-1 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white rounded-3xl p-10 shadow-2xl w-full max-w-xl"
+            >
+              <div className="space-y-4">
+                {features.map((feature, index) => (
+                  <ChecklistItem key={index} feature={feature} index={index} />
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

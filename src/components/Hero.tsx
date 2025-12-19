@@ -61,7 +61,7 @@ const MobileHero: FC = () => {
 const PcHero: FC = () => {
   return (
     <section
-      className="min-h-screen relative overflow-hidden pt-24"
+      className=" relative overflow-hidden pt-24"
       style={{
         background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)'
       }}
@@ -80,16 +80,15 @@ const PcHero: FC = () => {
         }}
       />
       <div className="container mx-auto px-12 py-20 relative z-10">
-        {/* 2열 레이아웃 */}
-        <div className="flex flex-row items-start justify-between gap-16">
+        {/* 상단: 타이틀 + 통계카드 (50/50 분할) */}
+        <div className="flex flex-row items-start justify-between gap-16 mb-12">
 
-          {/* 왼쪽: 텍스트 + 게이지 영역 */}
-          <div className="flex-1 flex flex-col justify-center">
+          {/* 왼쪽: 메인 타이틀 + 서브 텍스트 */}
+          <div className="flex-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
             >
               {/* 메인 타이틀 */}
               <h1 className="text-7xl font-extrabold leading-tight text-white tracking-tight mb-6">
@@ -107,43 +106,44 @@ const PcHero: FC = () => {
                 정책자금 전문가가 최적의 자금 솔루션을 제안합니다
               </p>
             </motion.div>
-
-            {/* 게이지 + 통계 영역 */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-row items-center gap-8"
-            >
-              <div className="transform scale-110">
-                <ApprovalGauge percentage={94.65} label="승인률" />
-              </div>
-
-              {/* 추가 통계 카드들 */}
-              <div className="flex flex-col gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/20">
-                  <p className="text-gray-400 text-sm">누적 승인 금액</p>
-                  <p className="text-2xl font-bold text-white">1,200억+</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/20">
-                  <p className="text-gray-400 text-sm">평균 처리 기간</p>
-                  <p className="text-2xl font-bold text-[#4ade80]">7일</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
-          {/* 오른쪽: 카드 영역 */}
-          <div className="flex-1 flex flex-col justify-center">
+          {/* 오른쪽: 통계 카드 영역 */}
+          <div className="flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col gap-8"
             >
-              <PolicyFundCard delay={0.3} />
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-12 py-10 border border-white/20 min-w-[400px]">
+                <p className="text-gray-400 text-lg mb-3">누적 승인 금액</p>
+                <p className="text-5xl font-bold text-white">1,200억+</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-12 py-10 border border-white/20 min-w-[400px]">
+                <p className="text-gray-400 text-lg mb-3">평균 처리 기간</p>
+                <p className="text-5xl font-bold text-[#4ade80]">7일</p>
+              </div>
             </motion.div>
           </div>
         </div>
+
+        {/* 하단: 게이지 + PolicyFundCard (전체 너비 사용) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-row items-center justify-between"
+        >
+          <div className="transform scale-110">
+            <ApprovalGauge percentage={94.65} label="승인률" />
+          </div>
+
+          {/* PolicyFundCard - 오른쪽 정렬 */}
+          <div className="flex-1 flex justify-end">
+            <PolicyFundCard delay={0.3} />
+          </div>
+        </motion.div>
 
         {/* 하단: SpecialBenefit */}
         <motion.div
