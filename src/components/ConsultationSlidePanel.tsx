@@ -36,33 +36,51 @@ const ConsultationSlidePanel: FC<ConsultationSlidePanelProps> = ({ isOpen, onClo
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('🚀 [1단계] 폼 제출 시작됨!');
 
     if (!formData.privacyAgreed) {
+      console.log('❌ [중단] 개인정보 동의 미체크로 제출 중단됨!');
       alert('개인정보 수집 및 이용에 동의해 주세요.');
       return;
     }
+    console.log('✅ [2단계] 개인정보 동의 확인됨!');
 
     setIsSubmitting(true);
+    console.log('⏳ [3단계] 제출 상태 변경됨! (isSubmitting: true)');
+
+    // Firebase에 보낼 데이터 준비
+    const consultationData = {
+      companyName: formData.companyName,
+      businessType: formData.businessType,
+      name: formData.name,
+      phone: formData.phone,
+      desiredAmount: formData.desiredAmount,
+      message: formData.message,
+      quickSubmit: formData.quickSubmit,
+      createdAt: serverTimestamp(),
+      status: 'pending',
+    };
+    console.log('📦 [4단계] Firebase 전송 데이터 준비됨!', consultationData);
 
     try {
+      console.log('🔥 [5단계] Firebase Firestore 요청 시작됨!');
+      console.log('📍 [5-1] 컬렉션 경로: consultations');
+      console.log('📍 [5-2] Firebase DB 객체 확인:', db);
+
       // Firestore에 상담 신청 데이터 저장
-      await addDoc(collection(db, 'consultations'), {
-        companyName: formData.companyName,
-        businessType: formData.businessType,
-        name: formData.name,
-        phone: formData.phone,
-        desiredAmount: formData.desiredAmount,
-        message: formData.message,
-        quickSubmit: formData.quickSubmit,
-        createdAt: serverTimestamp(),
-        status: 'pending', // 대기중, completed: 완료
-      });
+      const docRef = await addDoc(collection(db, 'consultations'), consultationData);
+
+      console.log('✅ [6단계] Firebase 저장 성공됨!');
+      console.log('📄 [6-1] 생성된 문서 ID:', docRef.id);
+      console.log('📄 [6-2] 문서 경로:', docRef.path);
 
       setIsSubmitting(false);
       setSubmitSuccess(true);
+      console.log('🎉 [7단계] 제출 완료 상태로 변경됨! (submitSuccess: true)');
 
       // 3초 후 패널 닫기
       setTimeout(() => {
+        console.log('🔄 [8단계] 3초 후 폼 초기화 및 패널 닫기 실행됨!');
         setSubmitSuccess(false);
         onClose();
         setFormData({
@@ -75,9 +93,16 @@ const ConsultationSlidePanel: FC<ConsultationSlidePanelProps> = ({ isOpen, onClo
           quickSubmit: false,
           privacyAgreed: true,
         });
+        console.log('✅ [9단계] 폼 초기화 완료됨!');
       }, 3000);
     } catch (error) {
-      console.error('상담 신청 저장 오류:', error);
+      console.error('❌ [에러] Firebase 저장 실패됨!');
+      console.error('❌ [에러 상세]:', error);
+      console.error('❌ [에러 타입]:', typeof error);
+      if (error instanceof Error) {
+        console.error('❌ [에러 메시지]:', error.message);
+        console.error('❌ [에러 스택]:', error.stack);
+      }
       alert('상담 신청 중 오류가 발생했습니다. 다시 시도해 주세요.');
       setIsSubmitting(false);
     }

@@ -17,8 +17,8 @@ const firebaseConfig = {
 // Firebase 초기화
 const app = initializeApp(firebaseConfig);
 
-// Firestore 데이터베이스
-export const db = getFirestore(app);
+// Firestore 데이터베이스 (new-db 사용 - Functions와 동일하게 맞춤)
+export const db = getFirestore(app, "new-db");
 
 // Analytics (선택적)
 export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;

@@ -1,0 +1,16 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // consultations 컬렉션 - 쓰기 허용 (상담 신청용)
+    match /consultations/{document=**} {
+      allow write: if true;
+      allow read: if false;
+    }
+    
+    // 나머지는 차단
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
