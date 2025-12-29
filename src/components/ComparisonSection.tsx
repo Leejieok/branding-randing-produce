@@ -107,7 +107,7 @@ const CircularProgress: FC<{ percentage: number; totalAmount: string; isMobile: 
 };
 
 // 스탯 바 차트 컴포넌트 (새 디자인)
-const StatBarChart: FC<{ isMobile: boolean }> = ({ isMobile }) => {
+const StatBarChart: FC<{ isMobile: boolean }> = ({ isMobile: _isMobile }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
