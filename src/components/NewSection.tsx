@@ -1,40 +1,51 @@
-import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import GradientButton from './GradientButton';
+import type { FC } from 'react';
 import { useIsMobile } from '../hooks/useIsMobile';
+import GradientButton from './GradientButton';
 
 // 이미지 import
-import calendarIcon from '../assets/icons/CALENDAR.png';
+import icon1 from '../assets/images/1.png';
+import icon2 from '../assets/images/2.png';
+import icon3 from '../assets/images/3.png';
+import icon4 from '../assets/images/4.png';
+import icon5 from '../assets/images/5.png';
+import icon6 from '../assets/images/6.png';
 
 const services = [
   {
+    icon:icon1,
     title: '전문 관리팀 배정',
     description: '업종별 투자전문 담당자를 배정하여 최적의 제안과 최상의 서비스 제공'
   },
   {
+    icon:icon2,
     title: '초고속 승인',
     description: '업계 최고 속도로 상담, 접수부터 승인까지 초고속 처리'
   },
   {
+    icon:icon3,
     title: '무방문 접수',
     description: '모든 절차를 온라인으로 진행이 가능한 시스템'
   },
   {
+    icon:icon4,
     title: '평생 파트너',
     description: '승인 후에도 지속 관리 및 상담 서비스 제공'
   },
   {
+    icon:icon5,
     title: '서류 발급 대행',
     description: '수많은 경험을 갖춘 승인 최적화된 사업계획서 작성과 철저한 서류 준비'
   },
   {
+    icon:icon6,
     title: '실시간 추적 시스템',
     description: '모든 진행 상황을 실시간으로 투명하게 공유 및 확인 가능'
   }
 ];
 
 // 서비스 카드 컴포넌트
-const ServiceCard: FC<{ service: { title: string; description: string }; index: number }> = ({ service, index }) => {
+const ServiceCard: FC<{ service: { icon: string; title: string; description: string }; index: number }> = ({ service, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -45,7 +56,7 @@ const ServiceCard: FC<{ service: { title: string; description: string }; index: 
       {/* 캘린더 아이콘 */}
       <div className="mb-4">
         <img
-          src={calendarIcon}
+          src={service.icon}
           alt="Calendar Icon"
           className="w-20 h-20 md:w-24 md:h-24 object-contain"
         />
