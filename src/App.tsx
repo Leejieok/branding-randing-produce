@@ -8,8 +8,13 @@ import NewSection from './components/NewSection';
 import Footer from './components/Footer';
 import ConsultationCTA from './components/ConsultationCTA';
 import ComparisonSection from './components/ComparisonSection';
+import ConsultationSlidePanel from './components/ConsultationSlidePanel';
+import { ConsultationProvider, useConsultation } from './context/ConsultationContext';
 
-function App() {
+// 메인 앱 콘텐츠 (Context 내부에서 사용)
+function AppContent() {
+  const { isOpen, closePanel } = useConsultation();
+
   return (
     <Layout>
       <Navbar />
@@ -59,8 +64,20 @@ function App() {
       <ComparisonSection />
 
       <Footer />
+
+      {/* 전역 상담 슬라이드 패널 */}
+      <ConsultationSlidePanel isOpen={isOpen} onClose={closePanel} />
     </Layout>
   );
 }
 
+function App() {
+  return (
+    <ConsultationProvider>
+      <AppContent />
+    </ConsultationProvider>
+  );
+}
+
 export default App;
+

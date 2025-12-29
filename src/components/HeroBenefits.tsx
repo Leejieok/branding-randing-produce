@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
+import { useConsultation } from '../context/ConsultationContext';
 
 // Import icons
 import fastApprovalIcon from '../assets/icons/fast_approval.png';
@@ -10,6 +11,8 @@ import onlineIcon from '../assets/icons/online.png';
 import documentIcon from '../assets/icons/document.png';
 
 const HeroBenefits: FC = () => {
+    const { openPanel } = useConsultation();
+
     return (
         <section className="relative w-full bg-background text-white overflow-hidden">
             <div className="container mx-auto px-4 py-8 relative z-10">
@@ -203,7 +206,10 @@ const HeroBenefits: FC = () => {
                     transition={{ duration: 0.6, delay: 0.7 }}
                     className="mt-12 text-center"
                 >
-                    <button className="w-full max-w-md mx-auto block px-8 py-5 bg-gradient-to-r from-secondary via-primary to-tertiary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/50 hover:shadow-tertiary/50 transition-all duration-300 hover:scale-105">
+                    <button
+                        onClick={openPanel}
+                        className="w-full max-w-md mx-auto block px-8 py-5 bg-gradient-to-r from-secondary via-primary to-tertiary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/50 hover:shadow-tertiary/50 transition-all duration-300 hover:scale-105"
+                    >
                         무료 상담 신청하기
                     </button>
                 </motion.div>
@@ -213,3 +219,4 @@ const HeroBenefits: FC = () => {
 };
 
 export default HeroBenefits;
+

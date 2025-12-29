@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import type { HTMLMotionProps } from 'framer-motion';
+import { useConsultation } from '../context/ConsultationContext';
 
 // 이미지 import
 import logoImage from '../assets/images/logo.png';
@@ -9,11 +10,21 @@ interface GradientButtonProps extends HTMLMotionProps<"button"> {
   text: string;
 }
 
-const GradientButton: FC<GradientButtonProps> = ({ text, className = '', ...props }) => {
+const GradientButton: FC<GradientButtonProps> = ({ text, className = '', onClick, ...props }) => {
+  const { openPanel } = useConsultation();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    openPanel();
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      onClick={handleClick}
       className={`
         relative box-border flex items-center
         w-[238px] h-[48px]
@@ -60,3 +71,4 @@ const GradientButton: FC<GradientButtonProps> = ({ text, className = '', ...prop
 };
 
 export default GradientButton;
+
