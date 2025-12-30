@@ -27,7 +27,7 @@ const GradientButton: FC<GradientButtonProps> = ({ text, className = '', onClick
       onClick={handleClick}
       className={`
         relative box-border flex items-center
-        w-[238px] h-[48px]
+        w-[270px] h-[48px]
         rounded-[10px]
         text-white
         shadow-lg hover:shadow-xl transition-shadow
@@ -55,7 +55,7 @@ const GradientButton: FC<GradientButtonProps> = ({ text, className = '', onClick
 
       {/* 텍스트 */}
       <span
-        className="absolute left-[58px] w-[145px] text-center font-['Pretendard'] font-extrabold text-[15px] leading-[18px] tracking-[-0.04em]"
+        className="absolute left-[58px] w-[175px] text-center font-['Pretendard'] font-extrabold text-[15px] leading-[18px] tracking-[-0.04em] whitespace-nowrap"
       >
         {text}
       </span>

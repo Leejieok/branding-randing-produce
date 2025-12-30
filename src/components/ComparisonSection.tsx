@@ -112,9 +112,9 @@ const StatBarChart: FC<{ isMobile: boolean }> = ({ isMobile: _isMobile }) => {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   const stats = [
-    { label: '3년 전 원금', value: '3억 9,993만원', percentage: 100, color: '#FF6B6B' },
-    { label: '탕감 금액', value: '3억 5,994만원', percentage: 90, color: '#A5FECB' },
-    { label: '현재 총 채무액', value: '3천 9백만원', percentage: 10, color: '#06B6D4' },
+    { label: '누적 처리건수', value: '9,993건', percentage: 100, color: '#FF6B6B' },
+    { label: '누적 승인건수', value: '9,298건', percentage: 90, color: '#A5FECB' },
+    { label: '현재 승인건수', value: '1,993건', percentage: 10, color: '#06B6D4' },
   ];
 
   return (
@@ -126,8 +126,8 @@ const StatBarChart: FC<{ isMobile: boolean }> = ({ isMobile: _isMobile }) => {
       transition={{ duration: 0.6, delay: 0.2 }}
     >
       <div className="stat-header">
-        <span className="stat-badge">90% DOWN</span>
-        <span className="stat-title">채무 감소 현황</span>
+        <span className="stat-badge">94.7% UP</span>
+        <span className="stat-title">자금 승인 현황</span>
       </div>
 
       <div className="stat-bars">
@@ -157,7 +157,7 @@ const StatBarChart: FC<{ isMobile: boolean }> = ({ isMobile: _isMobile }) => {
       </div>
 
       <div className="stat-summary">
-        <span>3억 9,993만원 탕감 달성</span>
+        <span>최대 자금 1,000,000,000원 까지</span>
       </div>
     </motion.div>
   );
