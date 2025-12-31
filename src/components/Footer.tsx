@@ -9,8 +9,11 @@ const MobileFooter: FC = () => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             <h3 className="text-white text-lg font-bold mb-2">정책비서</h3>
+            <p className="text-xs mb-1">
+              © 2026 정책비서. All rights reserved.
+            </p>
             <p className="text-xs">
-              © {new Date().getFullYear()} 정책비서. All rights reserved.
+              finbridge1014@gmail.com
             </p>
           </div>
           <div className="flex space-x-4 text-xs">
@@ -32,8 +35,11 @@ const PcFooter: FC = () => {
         <div className="flex flex-row justify-between items-center">
           <div>
             <h3 className="text-white text-2xl font-bold mb-3">정책비서</h3>
+            <p className="text-sm mb-1">
+              © 2026 정책비서. All rights reserved.
+            </p>
             <p className="text-sm">
-              © {new Date().getFullYear()} 정책비서. All rights reserved.
+              finbridge1014@gmail.com
             </p>
           </div>
           <div className="flex space-x-8 text-sm">
