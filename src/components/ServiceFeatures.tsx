@@ -10,7 +10,7 @@ import congratulationAnimation from '../assets/motion/congratulation.json';
 
 const features = [
   '사업자등록 보유 신청가능',
-  '신용점수 450점 이상 신청가능',
+  '신용점수 500점 이상 신청가능',
   '창업 3개월 이상 신청가능',
   '예비 창업자 신청가능',
   '국내 사업장 보유 신청가능',
